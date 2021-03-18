@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Weather from "./Weather";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const cities = [
+        {
+            city_name: "Mitaka",
+            color_name: "blue",
+        },
+        {
+            city_name: "London",
+            color_name: "yellow",
+        },
+        {
+            city_name: "Paris",
+            color_name: "green",
+        },
+        {
+            city_name: "Los Angeles",
+            color_name: "red",
+        },
+        {
+            city_name: "Beijing",
+            color_name: "indigo",
+        },
+        {
+            city_name: "Trin",
+            color_name: "pink",
+        },
+    ]
+    return (
+        <div className="min-h-screen flex justify-center items-center flex-wrap">
+            {
+                cities.map((city,index) =>
+                    <Weather
+                        key={index}
+                        city_name={city.city_name}
+                        color_name={city.color_name}
+                    />)
+            }
+        </div>
+    );
 }
 
 export default App;
